@@ -27,11 +27,9 @@ async def post_status():
             async with s.get(f"https://api.nitrado.net/services/serverid/gameservers", headers=headers) as t:   
                 d = await t.json()
                 g1_status = d['data']['gameserver']['status']
-                #g1_name = d['data']['gameserver']['query']['server_name']
                 g1_slots = d['data']['gameserver']['slots']
                 g1_players = d['data']['gameserver']['query']['player_current']
                 g1_playercount = "{}/{}".format(g1_players, g1_slots)
-                g1_boostcode = "sdfkjnsk"
             if g1_status == "started":
                 status = "🟢"
             elif g1_status == "stopped":
